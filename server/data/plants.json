@@ -1,0 +1,35 @@
+{
+  "plants": [
+    {
+      "id": 1,
+      "name": "Pothos",
+      "card": [
+        {
+          "id": 1,
+          "title": "Are you seeing yellow leaves?",
+          "yesText": "Yes",
+          "yesNextId": 3,
+          "noText": "Nope!",
+          "noNext": 2
+        },
+        {
+          "id": 2,
+          "title": "Are you watering the plant regularly?",
+          "yesText": "Yes",
+          "yesNextId": 4,
+          "noText": "Nope!",
+          "noNext": 3
+        },
+        {
+          "id": 3,
+          "title": "Your plant is dead. Get a new one"
+        },
+        {
+          "id": 4,
+          "title": "I have no idea, but your plant should be doing well *shrug*"
+        }
+      ]
+    },
+    { "id": 2, "name": "Philodendron" }
+  ]
+}
