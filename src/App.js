@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import Plants from "./components/Plants";
 
 class App extends Component {
   state = {
     data: null,
+    activePlantId: null,
+    activeCardId: null,
   };
 
   componentDidMount() {
@@ -28,15 +29,36 @@ class App extends Component {
     return body;
   };
 
+  handlePlantClick = (activePlantId) => {
+    this.setState({ activePlantId, activeCardId: 1 });
+  };
+
+  handleCardClick = (activeCardId) => {
+    this.setState({ activeCardId });
+  };
+
+  maybeRenderPlants = () => {
+    if (this.state.data) {
+      return (
+        <Plants
+          plants={this.state.data}
+          onPlantClick={this.handlePlantClick}
+          onCardClick={this.handleCardClick}
+        />
+      );
+    }
+    return null;
+  };
+
   render() {
     console.log(this.state);
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        {this.state.data && <Plants plants={this.state.data} />}
+        {this.state.activePlantId}
+        {this.maybeRenderPlants()}
         <p className="App-intro">{JSON.stringify(this.state.data)}</p>
       </div>
     );

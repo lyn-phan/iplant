@@ -7,8 +7,15 @@ class Plants extends Component {
     return (
       <div className="App">
         <h2> Plants </h2>
-        {this.props.plants.map((plant) => {
-          return <Plant {...plant} />;
+        {this.props.plants.map((plant, index) => {
+          return (
+            <Plant
+              key={`plant-${index}`}
+              {...plant}
+              onPlantClick={this.props.onPlantClick}
+              onCardClick={this.props.onCardClick}
+            />
+          );
         })}
       </div>
     );
